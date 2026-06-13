@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "compile and run (C++11 with I/O)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "g++ -std=c++11 ${fileBasename} -o ${fileBasenameNoExtension} && ./${fileBasenameNoExtension} < input.txt > output.txt"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "compile and run (C++11 only)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "g++ -std=c++11 ${fileBasename} -o ${fileBasenameNoExtension} && ./${fileBasenameNoExtension}"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "compile and run (C++17 with I/O)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "g++ -std=c++17 ${fileBasename} -o ${fileBasenameNoExtension} && ./${fileBasenameNoExtension} < input.txt > output.txt"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "compile and run (C++17 only)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "g++ -std=c++17 ${fileBasename} -o ${fileBasenameNoExtension} && ./${fileBasenameNoExtension}"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "compile only (C++11)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "g++ -std=c++11 ${fileBasename} -o ${fileBasenameNoExtension}"
+      ],
+      "group": "build"
+    }
+  ]
+}
