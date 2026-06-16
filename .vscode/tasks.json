@@ -2,12 +2,12 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "compile and run (C++11 with I/O)",
+      "label": "compile and run (C++17 with I/O)",
       "type": "shell",
       "command": "bash",
       "args": [
         "-c",
-        "g++ -std=c++11 \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && \"${fileDirname}/${fileBasenameNoExtension}\" < input.txt > output.txt"
+        "g++ -std=c++17 -g \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.out\" && /usr/bin/time -lp \"${fileDirname}/${fileBasenameNoExtension}.out\" < input.txt > output.txt && rm -f \"${fileDirname}/${fileBasenameNoExtension}.out\" && rm -rf \"${fileDirname}/${fileBasenameNoExtension}.out.dSYM\""
       ],
       "group": {
         "kind": "build",
@@ -16,45 +16,45 @@
       "problemMatcher": []
     },
     {
-      "label": "compile and run (C++11 only)",
-      "type": "shell",
-      "command": "bash",
-      "args": [
-        "-c",
-        "g++ -std=c++11 \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && \"${fileDirname}/${fileBasenameNoExtension}\""
-      ],
-      "group": "build",
-      "problemMatcher": []
-    },
-    {
-      "label": "compile and run (C++17 with I/O)",
-      "type": "shell",
-      "command": "bash",
-      "args": [
-        "-c",
-        "g++ -std=c++17 \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && \"${fileDirname}/${fileBasenameNoExtension}\" < input.txt > output.txt"
-      ],
-      "group": "build",
-      "problemMatcher": []
-    },
-    {
       "label": "compile and run (C++17 only)",
       "type": "shell",
       "command": "bash",
       "args": [
         "-c",
-        "g++ -std=c++17 \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && \"${fileDirname}/${fileBasenameNoExtension}\""
+        "g++ -std=c++17 -g \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.out\" && /usr/bin/time -lp \"${fileDirname}/${fileBasenameNoExtension}.out\""
       ],
       "group": "build",
       "problemMatcher": []
     },
     {
-      "label": "compile only (C++11)",
+      "label": "compile and run (C++11 with I/O)",
       "type": "shell",
       "command": "bash",
       "args": [
         "-c",
-        "g++ -std=c++11 \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\""
+        "g++ -std=c++11 -g \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.out\" && /usr/bin/time -lp \"${fileDirname}/${fileBasenameNoExtension}.out\" < input.txt > output.txt"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "compile and run (C++11 only)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "g++ -std=c++11 -g \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.out\" && /usr/bin/time -lp \"${fileDirname}/${fileBasenameNoExtension}.out\""
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "compile only (C++17)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "g++ -std=c++17 -g \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.out\""
       ],
       "group": "build",
       "problemMatcher": []
